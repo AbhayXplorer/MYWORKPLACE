@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Center | My Portfolio</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --bg: #0f172a; /* Fixed Dark Background */
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --text-light: #94a3b8;
+            --border: #334155;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 30px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
+        .hero p { color: var(--text-light); font-size: 1.1rem; }
+
+        /* --- Link Center Sections --- */
+        .section-title {
+            margin: 40px 0 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .link-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 16px 20px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .link-item:hover {
+            transform: translateX(8px);
+            border-color: var(--primary);
+            background: #243347;
+        }
+
+        .link-info { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            flex: 1; 
+            min-width: 0; 
+        }
+
+        .link-info i { font-size: 1.4rem; color: var(--primary); width: 25px; text-align: center; }
+        
+        .platform-name { font-weight: 600; font-size: 0.95rem; width: 120px; }
+
+        .url-box {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            background: rgba(15, 23, 42, 0.5);
+            padding: 6px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0 15px;
+            border: 1px solid var(--border);
+            flex: 1;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.75rem;
+            transition: 0.2s;
+            min-width: 80px;
+        }
+
+        .copy-btn:hover { opacity: 0.9; transform: scale(1.05); }
+        .copy-btn.copied { background: #10b981; }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 650px) {
+            .link-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .url-box { margin: 0; width: 100%; }
+            .copy-btn { width: 100%; }
+            .platform-name { width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <header class="hero">
+            <img src="AMity Photo.jpg" alt="Profile" class="profile-img">
+            <h1>Abhay Gupta</h1>
+            <p>Software Developer | Tech Enthusiast</p>
+        </header>
+
+        <!-- Social Accounts Section -->
+        <h2 class="section-title"><i class="fas fa-user-circle"></i> Social Profiles</h2>
+        <div class="link-grid">
+            
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fab fa-linkedin"></i>
+                    <span class="platform-name">LinkedIn</span>
+                    <span class="url-box" id="url-linkedin">https://www.linkedin.com/in/abhay-gupta-9a490832b/</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-linkedin', this)">COPY</button>
+            </div>
+
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fab fa-github"></i>
+                    <span class="platform-name">GitHub</span>
+                    <span class="url-box" id="url-github">https://github.com/AbhayXplorer</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-github', this)">COPY</button>
+            </div>
+
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fab fa-twitter"></i>
+                    <span class="platform-name">Twitter / X</span>
+                    <span class="url-box" id="url-twitter">https://x.com/yourhandle</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-twitter', this)">COPY</button>
+            </div>
+
+        </div>
+
+        <!-- Project Links Section -->
+        <h2 class="section-title"><i class="fas fa-code"></i> Project Links</h2>
+        <div class="link-grid">
+
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="platform-name">Wanderlust</span>
+                    <span class="url-box" id="url-proj1">https://github.com/AbhayXplorer/Wanderlust</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-proj1', this)">COPY</button>
+            </div>
+
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="platform-name">Wanderlust-Live</span>
+                    <span class="url-box" id="url-proj1">https://wanderlust-jdun.onrender.com</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-proj1', this)">COPY</button>
+            </div>
+        
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fas fa-folder-open"></i>
+                    <span class="platform-name">Quick-Chat</span>
+                    <span class="url-box" id="url-proj2">https://github.com/AbhayXplorer/QuickChat</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-proj2', this)">COPY</button>
+            </div>
+
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fas fa-folder-open"></i>
+                    <span class="platform-name">Quick-Chat-Live</span>
+                    <span class="url-box" id="url-proj2">https://quickchat-xz5n.onrender.com</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-proj2', this)">COPY</button>
+            </div>
+
+            <div class="link-item">
+                <div class="link-info">
+                    <i class="fas fa-laptop-code"></i>
+                    <span class="platform-name">Simon Game</span>
+                    <span class="url-box" id="url-proj3">https://abhayxplorer.github.io/Simon-Game/</span>
+                </div>
+                <button class="copy-btn" onclick="copy('url-proj3', this)">COPY</button>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Designed for easy access & fast copy &bull; 2024</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple Copy Logic
+        function copy(id, btn) {
+            const textToCopy = document.getElementById(id).innerText;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "COPIED!";
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('copied');
+                }, 1500);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
